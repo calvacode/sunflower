@@ -1,13 +1,23 @@
 package com.zoohackathon.sunflower.domains.ibama;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
-@Document
+@Entity
 public class Coordinate {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     private String infractionId;
 

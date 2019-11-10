@@ -1,9 +1,9 @@
 package com.zoohackathon.sunflower.gateways.mongo;
 
 import com.zoohackathon.sunflower.domains.ibama.Specimens;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SpecimensRepository extends MongoRepository<Specimens, String> {
+public interface SpecimensRepository extends JpaRepository<Specimens, Long> {
 
     Specimens findFirstByInfractionId(String infractionId);
 }

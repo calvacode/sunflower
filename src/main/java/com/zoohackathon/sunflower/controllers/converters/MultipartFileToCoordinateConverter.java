@@ -42,15 +42,6 @@ public class MultipartFileToCoordinateConverter implements Converter<MultipartFi
 
     private Coordinate buildCoordinate(final String line) {
         final String[] split = line.split(COMMA);
-        Specimens specimens = specimensRepository.findFirstByInfractionId(split[SEQ_AUTO_INFRACAO]);
-        try {
-            specimens.setState(BrazilGeoStates.getState(Double.valueOf(split[LONGITUDE]),
-                    Double.valueOf(split[LATITUDE])).name());
-        } catch (Exception ex) {
-
-        }
-
-
         return Coordinate.builder()
                 .infractionId(split[SEQ_AUTO_INFRACAO])
                 .longitude(split[LONGITUDE])

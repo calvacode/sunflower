@@ -48,7 +48,7 @@ public class IbamaController {
     public void uploadBioma(@RequestParam("file") MultipartFile file) {
         List<Specimens> convert = multipartFileToSpecimensConverter.convert(file);
         if(! Objects.requireNonNull(convert).isEmpty()){
-            specimensRepository.saveAll(convert);
+            convert.forEach(specimensRepository::save);
         }
     }
 
@@ -60,7 +60,8 @@ public class IbamaController {
     public void uploadCoordenada(@RequestParam("file") MultipartFile file) {
         List<Coordinate> convert = multipartFileToCoordinateConverter.convert(file);
         if(! Objects.requireNonNull(convert).isEmpty()){
-            coordinateRepository.saveAll(convert);
+            convert.forEach(coordinateRepository::save);
+//            coordinateRepository.saveAll(convert);
         }
     }
 }

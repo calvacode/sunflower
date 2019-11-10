@@ -4,10 +4,18 @@ feign:
     url: http://dadosabertos.ibama.gov.br/dados/SIFISC/auto_infracao
 
 spring:
+  h2.console.enabled: true
+  h2.console.path: /h2-console
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/sunflower
+#  data:
+#    mongodb:
+#      uri: mongodb://localhost:27017/sunflower
+
+spring.jpa.hibernate.ddl-auto: update
+spring.datasource.url: jdbc:mysql://localhost:32769/sunflower
+spring.datasource.username: root
+spring.datasource.password:
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect

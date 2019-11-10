@@ -1,8 +1,6 @@
 package com.zoohackathon.sunflower.controllers.converters;
 
-import com.zoohackathon.sunflower.commons.BrazilGeoStates;
 import com.zoohackathon.sunflower.commons.ReadCsvFile;
-import com.zoohackathon.sunflower.domains.ibama.Coordinate;
 import com.zoohackathon.sunflower.domains.ibama.Specimens;
 import com.zoohackathon.sunflower.gateways.mongo.CoordinateRepository;
 import lombok.RequiredArgsConstructor;
@@ -56,13 +54,13 @@ public class MultipartFileToSpecimensConverter implements Converter<MultipartFil
                 .infractionId(split[SEQ_AUTO_INFRACAO])
                 .quantity(normalize(split[QUANTIDADE]))
                 .unity(normalize(split[UNIDADE]))
-                .type(normalize(split[TIPO]))
-                .group(normalize(split[GRUPO]))
+                .types(normalize(split[TIPO]))
+                .groupo(normalize(split[GRUPO]))
                 .popularName(normalize(split[NOME_POPULAR]))
                 .scientificName(normalize(split[NOME_CIENTIFICO]))
                 .cites(normalize(split[CITES]))
                 .description(normalize(split[DESCRICAO]))
-                .characteristics(normalize(split[CARACTERISTICA]))
+                .characteristicsT(normalize(split[CARACTERISTICA]))
                 .situation(normalize(split[SITUACAO]))
                 .build();
     }

@@ -1,13 +1,22 @@
 package com.zoohackathon.sunflower.domains.ibama;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
-@Document
+@Entity
 public class Specimens {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     private String infractionId;
 
@@ -15,9 +24,9 @@ public class Specimens {
 
     private String unity;
 
-    private String type;
+    private String types;
 
-    private String group;
+    private String groupo;
 
     private String popularName;
 
@@ -27,7 +36,7 @@ public class Specimens {
 
     private String description;
 
-    private String characteristics;
+    private String characteristicsT;
 
     private String situation;
 
