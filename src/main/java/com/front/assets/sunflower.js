@@ -1,103 +1,20 @@
-// let url = "localhost:8080/get-animals";
-// let data = "";
+let url = 'http://172.20.34.157:8080/ibama';
+let data = "";
 
-// function init(){
-//     fetch(url).then(r => r.json())
-//   .then(data => {
-//     createElement(data);
-//   })
-//   .catch(e => {
-//     console.log("Deu ruim");
-//   });
-// }
+function init(){
+    fetch(url).then(r => r.json())
+  .then(data => {
+    createElement(data);
+  })
+  .catch(e => {
+    console.log("Deu ruim");
+  });
+}
 
 function createElement(data) {
     let boxList = document.querySelector('.box-list-itens');
     
-
-    let el = `{
-        "regioes":[
-            {
-                "nome":"GO",
-                "rank":[{
-                   "vulgo":"macaquin",
-                    "especie":"macacus macaquis",
-                    "quantidade":"200"
-                },{       
-                   "vulgo":"foquinha",     
-                    "especie":"focus foca",
-                    "quantidade":"100"
-                },{ 
-                   "vulgo":"peixin",           
-                    "especie":"lambari lambaris",
-                    "quantidade":"50"
-                }
-                ]
-            }, {
-                "nome":"DF",
-                "rank":[{
-                   "vulgo":"macaquin",
-                    "especie":"macacus macaquis",
-                    "quantidade":"200"
-                },{       
-                   "vulgo":"foquinha",     
-                    "especie":"focus foca",
-                    "quantidade":"100"
-                },{ 
-                   "vulgo":"peixin",           
-                    "especie":"lambari lambaris",
-                    "quantidade":"50"
-                }
-                ]
-            }, {
-                "nome":"SP",
-                "rank":[{
-                   "vulgo":"macaquin",
-                    "especie":"macacus macaquis",
-                    "quantidade":"200"
-                },{       
-                   "vulgo":"foquinha",     
-                    "especie":"focus foca",
-                    "quantidade":"100"
-                },{ 
-                   "vulgo":"peixin",           
-                    "especie":"lambari lambaris",
-                    "quantidade":"50"
-                }
-                ]
-            },
-            {
-                "nome":"SP",
-                "rank":[
-                {       
-                    "vulgo":"piruleigo",     
-                     "especie":"voadorus perus",
-                     "quantidade":"100"
-                 },{ 
-                    "vulgo":"tortuguita",           
-                     "especie":"marinhus tortuga",
-                     "quantidade":"50"
-                 }
-                ]
-            },
-            {
-                "nome":"sao-paulo",
-                "rank":[
-                {       
-                    "vulgo":"piruleigo",     
-                     "especie":"voadorus perus",
-                     "quantidade":"100"
-                 },{ 
-                    "vulgo":"tortuguita",           
-                     "especie":"marinhus tortuga",
-                     "quantidade":"50"
-                 }
-                ]
-            }
-        ]
-    }`;
-    var data = JSON.parse(el);
-    var regioes = data.regioes;
+    var regioes = data;
     var pos;
     for(pos in regioes){
         let region = regioes[pos]
@@ -190,8 +107,7 @@ function createElement(data) {
     }
 
     window.addEventListener('load', function() {
-        
-        createElement();
+        init();
       })
 
 function toggle(regiaoClass){
