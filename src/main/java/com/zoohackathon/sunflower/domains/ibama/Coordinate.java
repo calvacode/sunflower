@@ -21,7 +21,7 @@ public class Coordinate {
 
     private String infractionId;
 
-    private String longitude;
+    private double longitude;
 
-    private String latitude;
+    private double latitude;
 }

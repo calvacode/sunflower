@@ -1,9 +1,7 @@
 package com.zoohackathon.sunflower.controllers.converters;
 
-import com.zoohackathon.sunflower.commons.BrazilGeoStates;
 import com.zoohackathon.sunflower.commons.ReadCsvFile;
 import com.zoohackathon.sunflower.domains.ibama.Coordinate;
-import com.zoohackathon.sunflower.domains.ibama.Specimens;
 import com.zoohackathon.sunflower.gateways.mongo.SpecimensRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.convert.converter.Converter;
@@ -44,8 +42,8 @@ public class MultipartFileToCoordinateConverter implements Converter<MultipartFi
         final String[] split = line.split(COMMA);
         return Coordinate.builder()
                 .infractionId(split[SEQ_AUTO_INFRACAO])
-                .longitude(split[LONGITUDE])
-                .latitude(split[LATITUDE])
+                .longitude(Double.valueOf(split[LONGITUDE]))
+                .latitude(Double.valueOf(split[LATITUDE]))
                 .build();
     }
 }
