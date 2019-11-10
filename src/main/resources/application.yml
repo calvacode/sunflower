@@ -4,6 +4,10 @@ feign:
     url: http://dadosabertos.ibama.gov.br/dados/SIFISC/auto_infracao
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
   data:
     mongodb:
       uri: mongodb://localhost:27017/sunflower

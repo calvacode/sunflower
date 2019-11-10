@@ -16,17 +16,15 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Collection;
 
-@FeignClient(name = "${feign.IbamaClient.name}", url = "${feign.IbamaClient.url}")
+@FeignClient(name = "${feign.IbamaClient.name}", url = "${feign.IbamaClient.url}", configuration = IbamaClient.MultipartSupportConfig.class)
 public interface IbamaClient {
 
     @GetMapping("/bioma/bioma.csv")
-    MultipartFile downFile(@RequestParam("key") String key);
-
+    MultipartFile downFile();
 
     class MultipartSupportConfig {
 
