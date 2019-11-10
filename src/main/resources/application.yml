@@ -1,0 +1,9 @@
+feign:
+  IbamaClient:
+    name: IbamaClient
+    url: http://dadosabertos.ibama.gov.br/dados/SIFISC/auto_infracao
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/sunflower
